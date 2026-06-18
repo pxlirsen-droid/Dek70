@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Future Guide</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🌱 Future Guide</h1>
-  <p>ค้นหาตัวเอง วางแผนอนาคต</p>
-</header>
+<h1>Student Dashboard</h1>
 
-<section class="card">
-  <h2>🔍 ค้นหาตัวเอง</h2>
-  <input id="searchBox" placeholder="อยากเป็นหมอ / วิศวะ / ไม่รู้จะเรียนอะไร">
-  <button onclick="searchCareer()">ค้นหา</button>
-  <p id="searchResult"></p>
-</section>
+<button id="themeBtn">🌙 เปลี่ยนธีม</button>
 
-<section class="card">
-  <h2>💬 คำคมฮีลใจ</h2>
-  <button onclick="openQuotes()">เปิดคำคม</button>
-</section>
+<h2>🕒 เวลา</h2>
+<p id="clock"></p>
 
-<section class="card">
-  <h2>📰 ข่าวสาร</h2>
-  <button onclick="toggleNews()">ดูข่าว</button>
-  <div id="newsBox"></div>
-</section>
+<h2>📝 To Do List</h2>
+<input type="text" id="taskInput">
+<button onclick="addTask()">เพิ่มงาน</button>
+<ul id="taskList"></ul>
 
-<section class="card">
-  <h2>🧠 แบบทดสอบ</h2>
-  <button onclick="openTest()">เริ่มทดสอบ</button>
-</section>
+<h2>🧮 เครื่องคิดเลข</h2>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<button onclick="calculate()">คำนวณ</button>
+<p id="result"></p>
 
-<section class="card">
-  <h2>📊 คำนวณคะแนน</h2>
-  <button onclick="openCalc()">คำนวณ</button>
-</section>
-
-<section class="card">
-  <h2>💬 Discord</h2>
-  <a href="https://discord.com" target="_blank">เข้าร่วม</a>
-</section>
+<h2>💬 คำคมประจำวัน</h2>
+<button onclick="quote()">สุ่มคำคม</button>
+<p id="quoteText"></p>
 
 <script src="app.js"></script>
+
 </body>
 </html>

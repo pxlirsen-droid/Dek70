@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Future Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🌱 Future Guide</h1>
+  <p>ค้นหาตัวเอง วางแผนอนาคต</p>
+</header>
+
+<section class="card">
+  <h2>🔍 ค้นหาตัวเอง</h2>
+  <input id="searchBox" placeholder="อยากเป็นหมอ / วิศวะ / ไม่รู้จะเรียนอะไร">
+  <button onclick="searchCareer()">ค้นหา</button>
+  <p id="searchResult"></p>
+</section>
+
+<section class="card">
+  <h2>💬 คำคมฮีลใจ</h2>
+  <button onclick="openQuotes()">เปิดคำคม</button>
+</section>
+
+<section class="card">
+  <h2>📰 ข่าวสาร</h2>
+  <button onclick="toggleNews()">ดูข่าว</button>
+  <div id="newsBox"></div>
+</section>
+
+<section class="card">
+  <h2>🧠 แบบทดสอบ</h2>
+  <button onclick="openTest()">เริ่มทดสอบ</button>
+</section>
+
+<section class="card">
+  <h2>📊 คำนวณคะแนน</h2>
+  <button onclick="openCalc()">คำนวณ</button>
+</section>
+
+<section class="card">
+  <h2>💬 Discord</h2>
+  <a href="https://discord.com" target="_blank">เข้าร่วม</a>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

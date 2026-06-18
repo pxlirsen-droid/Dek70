@@ -1,50 +1,81 @@
+// Clock
+function updateClock(){
+    const now = new Date();
+    document.getElementById("clock").innerText =
+    now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
 
-function searchCareer(){
-let i=document.getElementById("searchBox").value;
-let r=document.getElementById("searchResult");
+// Theme
+const themeBtn = document.getElementById("themeBtn");
 
-if(i.includes("หมอ")) r.innerHTML="หมอ: เน้นชีวะ+เคมี → A-Level → แพทย์";
-else if(i.includes("วิศวะ")) r.innerHTML="วิศวะ: ฟิสิกส์+คณิต → คณะวิศวะ";
-else if(i.includes("ไม่รู้")) r.innerHTML="ลองทำแบบทดสอบ";
-else r.innerHTML="ลองพิมพ์ใหม่";
+themeBtn.addEventListener("click",()=>{
+    document.body.classList.toggle("dark");
+});
+
+// Todo List
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function saveTasks(){
+    localStorage.setItem("tasks",JSON.stringify(tasks));
 }
 
-function openQuotes(){
-alert("อย่าหยุดฝัน
-คุณเก่งกว่าที่คิด
-พรุ่งนี้จะดีขึ้น");
+function renderTasks(){
+    const list = document.getElementById("taskList");
+    list.innerHTML="";
+
+    tasks.forEach((task,index)=>{
+        const li=document.createElement("li");
+        li.innerHTML=
+        `${task}
+        <button onclick="deleteTask(${index})">❌</button>`;
+        list.appendChild(li);
+    });
 }
 
-function toggleNews(){
-document.getElementById("newsBox").innerHTML=`
-<h3>TCAS</h3>
-<ul>
-<li>รอบ 1 Portfolio</li>
-<li>รอบ 2 Quota</li>
-<li>รอบ 3 Admission</li>
-</ul>
+function addTask(){
+    const input=document.getElementById("taskInput");
 
-<h3>ทุน</h3>
-<ul>
-<li>ทุนแพทย์</li>
-<li>ทุนวิศวะ</li>
-</ul>`;
+    if(input.value==="") return;
+
+    tasks.push(input.value);
+
+    saveTasks();
+    renderTasks();
+
+    input.value="";
 }
 
-function openTest(){
-let q=prompt("ชอบอะไร? 1สัตว์ 2อ่านหนังสือ 3ปลูกต้นไม้");
-if(q=="1") alert("สัตวแพทย์");
-else if(q=="2") alert("นิติ/หมอ");
-else alert("เกษตร");
+function deleteTask(index){
+    tasks.splice(index,1);
+    saveTasks();
+    renderTasks();
 }
 
-function openCalc(){
-let a=Number(prompt("ชีวะ"));
-let b=Number(prompt("เคมี"));
-let c=Number(prompt("คณิต"));
-let avg=(a+b+c)/3;
+renderTasks();
 
-if(avg>80) alert("แพทย์/ทันตะ");
-else if(avg>60) alert("วิศวะ");
-else alert("สำรวจตัวเอง");
+// Calculator
+function calculate(){
+    const n1=Number(document.getElementById("num1").value);
+    const n2=Number(document.getElementById("num2").value);
+
+    document.getElementById("result").innerText=
+    "ผลลัพธ์ = "+(n1+n2);
+}
+
+// Quotes
+function quote(){
+
+const quotes=[
+"ความพยายามไม่เคยทรยศใคร",
+"ทำวันนี้ให้ดีที่สุด",
+"เริ่มช้าดีกว่าไม่เริ่ม",
+"ทุกความสำเร็จเริ่มจากก้าวแรก"
+];
+
+const random=
+quotes[Math.floor(Math.random()*quotes.length)];
+
+document.getElementById("quoteText").innerText=random;
+
 }

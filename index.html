@@ -1,212 +1,69 @@
 <!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dek70 Future Guide</title>
 
-<link rel="stylesheet" href="style.css">
+<html lang="th"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Find My Future</title>
+
+<style> body{ font-family: Arial,sans-serif; margin:0; background:#f4f6ff; } header{ background:#4f46e5; color:white; padding:25px; text-align:center; } nav{ background:white; padding:15px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; } nav button{ padding:10px 15px; border:none; background:#6366f1; color:white; border-radius:10px; cursor:pointer; } section{ background:white; margin:20px; padding:20px; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,.1); } input{ padding:10px; width:70%; } .quote{ background:#eef2ff; padding:10px; margin:10px 0; border-radius:8px; } </style>
+
 </head>
 
 <body>
 
-<header>
-<h1>🎓 Dek70 Future Guide</h1>
-<p>ค้นหาคณะที่ใช่ อาชีพที่ชอบ และวางแผนอนาคตของคุณ</p>
-</header>
+<header> <h1>Find My Future</h1> <p>ค้นหาคณะที่ใช่ อาชีพที่ชอบ</p> </header>
 
-<nav>
-<a href="#search">ค้นหาอาชีพ</a>
-<a href="#quote">ฮีลใจ</a>
-<a href="#news">ข่าวสาร</a>
-<a href="#quiz">ค้นหาตัวเอง</a>
-<a href="#study">ตารางติว</a>
-<a href="#score">คำนวณคะแนน</a>
-<a href="#discord">ชุมชน</a>
-</nav>
+<nav> <button onclick="showSection('search')">ค้นหาตัวเอง</button> <button onclick="showSection('quotes')">ฮีลใจ</button> <button onclick="showSection('tcas')">ข่าว TCAS</button> <button onclick="showSection('scholarship')">ทุน</button> <button onclick="showSection('gpax')">คำนวณ GPAX</button> </nav>
 
-<section id="search" class="card">
-<h2>🔍 ค้นหาอาชีพ/คณะ</h2>
+<section id="search">
 
-<input
-type="text"
-id="careerInput"
-placeholder="เช่น อยากเป็นหมอ">
+<h2>🔍 ค้นหาตัวเอง</h2>
 
-<button onclick="searchCareer()">
-ค้นหา
-</button>
+<input id="careerInput" placeholder="เช่น อยากเป็นหมอ">
 
-<div id="careerResult"></div>
+<button onclick="searchCareer()"> ค้นหา </button>
+
+<p id="result"></p>
 
 </section>
 
-<section id="quote" class="card">
+<section id="quotes" style="display:none">
 
-<h2>💖 คำฮีลใจ</h2>
+<h2>❤️ คำคมฮีลใจ</h2>
 
-<button onclick="showQuote()">
-สุ่มคำฮีลใจ
-</button>
-
-<p id="quoteText"></p>
+<div class="quote">ทุกคนมีเวลาของตัวเอง</div> <div class="quote">สอบไม่ติดรอบนี้ ไม่ได้แปลว่าชีวิตจบ</div> <div class="quote">ความพยายามวันนี้ จะเป็นความสำเร็จวันหน้า</div>
 
 </section>
 
-<section id="news" class="card">
+<section id="tcas" style="display:none">
 
 <h2>📢 ข่าว TCAS</h2>
 
-<table>
-
-<tr>
-<th>รอบ</th>
-<th>ช่วงเวลา</th>
-</tr>
-
-<tr>
-<td>Portfolio</td>
-<td>ตุลาคม - พฤศจิกายน</td>
-</tr>
-
-<tr>
-<td>Quota</td>
-<td>มกราคม - กุมภาพันธ์</td>
-</tr>
-
-<tr>
-<td>Admission</td>
-<td>พฤษภาคม</td>
-</tr>
-
-<tr>
-<td>Direct Admission</td>
-<td>มิถุนายน</td>
-</tr>
-
-</table>
-
-<h2>🎓 ข่าวทุนการศึกษา</h2>
-
-<ul>
-<li>ทุนเรียนดี ม.อุบล</li>
-<li>ทุนเด็กชนบท มข.</li>
-<li>ทุนความสามารถพิเศษ มช.</li>
-<li>ทุนเรียนฟรีสายวิทย์สุขภาพ</li>
-</ul>
+<ul> <li>Portfolio เปิดรับสมัคร</li> <li>Quota เปิดรับสมัคร</li> <li>Admission รอบกลางปี</li> </ul>
 
 </section>
 
-<section id="quiz" class="card">
+<section id="scholarship" style="display:none">
 
-<h2>🧠 ค้นหาตัวเอง</h2>
+<h2>🎓 ทุนการศึกษา</h2>
 
-<select id="interest">
-
-<option value="">เลือกความสนใจ</option>
-
-<option value="doctor">
-ชอบช่วยเหลือคน
-</option>
-
-<option value="vet">
-ชอบสัตว์
-</option>
-
-<option value="agri">
-ชอบปลูกต้นไม้
-</option>
-
-<option value="law">
-ชอบอ่านหนังสือ
-</option>
-
-</select>
-
-<button onclick="findMajor()">
-วิเคราะห์
-</button>
-
-<p id="quizResult"></p>
+<ul> <li>ทุนเรียนดี มข.</li> <li>ทุนความสามารถ มช.</li> <li>ทุนช่วยเหลือการศึกษา มศว</li> </ul>
 
 </section>
 
-<section id="study" class="card">
+<section id="gpax" style="display:none">
 
-<h2>📚 ตารางอ่านหนังสือ</h2>
+<h2>📊 คำนวณ GPAX</h2>
 
-<select id="goal">
+<input type="number" id="g1" placeholder="เทอม 1"><br><br>
+<input type="number" id="g2" placeholder="เทอม 2"><br><br>
+<input type="number" id="g3" placeholder="เทอม 3"><br><br>
+<input type="number" id="g4" placeholder="เทอม 4"><br><br>
+<input type="number" id="g5" placeholder="เทอม 5"><br><br>
 
-<option value="doctor">
-หมอ
-</option>
+<button onclick="calculateGPAX()">คำนวณ</button>
 
-<option value="pharmacy">
-เภสัช
-</option>
-
-<option value="vet">
-สัตวแพทย์
-</option>
-
-</select>
-
-<button onclick="createPlan()">
-สร้างตาราง
-</button>
-
-<div id="studyPlan"></div>
+<h3 id="gpaxResult"></h3>
 
 </section>
 
-<section id="score" class="card">
+<script> function showSection(id){ let sections=document.querySelectorAll("section"); sections.forEach(sec=>{ sec.style.display="none"; }); document.getElementById(id).style.display="block"; } function searchCareer(){ let text=document.getElementById("careerInput").value; let result=""; if(text.includes("หมอ")){ result="แนะนำ: แพทยศาสตร์ พยาบาล เทคนิคการแพทย์"; } else if(text.includes("สัตว์")){ result="แนะนำ: สัตวแพทยศาสตร์"; } else if(text.includes("คอม")){ result="แนะนำ: วิทยาการคอมพิวเตอร์"; } else{ result="ลองทำแบบทดสอบค้นหาตัวเองเพิ่มเติม"; } document.getElementById("result").innerHTML=result; } function calculateGPAX(){ let g1=parseFloat(document.getElementById("g1").value)||0; let g2=parseFloat(document.getElementById("g2").value)||0; let g3=parseFloat(document.getElementById("g3").value)||0; let g4=parseFloat(document.getElementById("g4").value)||0; let g5=parseFloat(document.getElementById("g5").value)||0; let gpax=(g1+g2+g3+g4+g5)/5; document.getElementById("gpaxResult").innerHTML= "GPAX = "+gpax.toFixed(2); } </script>
 
-<h2>📊 คำนวณคะแนน</h2>
-
-<input
-type="number"
-id="tgat"
-placeholder="TGAT">
-
-<input
-type="number"
-id="tpat"
-placeholder="TPAT">
-
-<input
-type="number"
-id="alevel"
-placeholder="A-Level">
-
-<button onclick="calculateScore()">
-คำนวณ
-</button>
-
-<p id="scoreResult"></p>
-
-</section>
-
-<section id="discord" class="card">
-
-<h2>👥 ชุมชน Dek70</h2>
-
-<p>
-สร้าง Discord Server แล้วนำลิงก์มาใส่ตรงนี้
-</p>
-
-<a href="#">
-เข้าชุมชน
-</a>
-
-</section>
-
-<footer>
-<p>
-Dek70 Future Guide © 2026
-</p>
-</footer>
-
-<script src="app.js"></script>
-
-</body>
-</html>
+</body> </html>
